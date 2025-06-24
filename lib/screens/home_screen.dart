@@ -32,7 +32,7 @@ class HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            "Location App",
+            "Path Finder App",
             style: TextStyle(
               fontWeight: FontWeight.w500,
             ),
@@ -47,7 +47,10 @@ class HomeScreenState extends State<HomeScreen> {
                   ));
                 },
                 tooltip: "Location History",
-                icon: const Icon(Icons.location_history_rounded),
+                icon: const Icon(
+                  Icons.location_history,
+                  color: Colors.white,
+                ),
               ),
             ),
           ],
@@ -93,20 +96,15 @@ class HomeScreenState extends State<HomeScreen> {
             }
           },
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            _bloc.add(GetCurrentLocationEvent());
-          },
+          onPressed: () => _bloc.add(GetCurrentLocationEvent()),
           backgroundColor: Colors.black,
           label: const Text(
-            'Store Location',
+            'Click to Store Location',
             style: TextStyle(
               color: Colors.white,
             ),
-          ),
-          icon: const Icon(
-            Icons.location_on,
-            color: Colors.white,
           ),
         ),
       ),
